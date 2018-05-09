@@ -1,0 +1,16 @@
+<mat-form-field style="border:1px solid red">
+  <mat-chip-list #chipList>
+    <mat-chip *ngFor="let item of chips" [selectable]="selectable" (remove)="remove(item)">
+        <!-- <mat-chip *ngFor="let item of chips"> -->
+      <mat-icon>group</mat-icon>
+      {{item.name}}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+    <input matInput [matAutocomplete]="auto" [formControl]="searchCtrl" [matChipInputFor]="chipList" #input (input)="onChange(input.value)" (click)="openPanel()">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addSelect($event)">
+      <mat-option *ngFor="let user of filteredOptions | async" [value]="user">
+        <span>{{ user.name }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-chip-list>
+</mat-form-field>
