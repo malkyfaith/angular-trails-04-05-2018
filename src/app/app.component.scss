@@ -1,0 +1,23 @@
+$bg-color: grey;
+$text-color: black;
+$hover-color: rgb(209, 0, 28);
+$font-size: 18px;
+
+ul {
+    background-color: $bg-color;
+    li.items {
+        color: $text-color;
+        display: inline-block;
+        padding: 0 25px;
+        font-size: $font-size;
+        text-decoration: none;
+    }
+    a {
+        color: $text-color;
+        &:hover {
+            cursor: pointer;
+            color: $hover-color;
+        }
+      }
+}
+
